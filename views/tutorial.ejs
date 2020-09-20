@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Supernotes</title>
+    <meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="CSS/styles.css">
+</head>
+
+<body>
+  <%- include("navbar") -%>
+  <br><br>
+  <div class="intro">
+    <h1>Welcome to Supernotes!</h1>
+    <p>
+      Create interactive notes from plain text! You can create flashcard modules, headers, fill ins, and multiple choice questions + embedd videos, google docs, and google slides using the following rules:
+    </p>
+    <hr>
+    <h2>Flashcards</h2>
+    <p>
+      To create a flash card module, wrap your text in two backslashes like so with a fc: as the first two letters (no space!):
+    </p>
+    <p class="example">\fc:\ </p>
+    <p>
+      Then type in your flash cards in a series separated by two commas like so:
+    </p>
+    <p class="example">\fc: mitochondria,, powerhouse of the cell,, cell,, smallest unit of life\ </p>
+    <p>
+      It'll come out looking like this!
+    </p>
+    <!--   Flash Card Module -->
+    <center>
+    <div id="fc-0" class="module module-flashcard">
+      <div class="flashcard">
+        <p class="text-front">mitochondria</p>
+        <p class="text-back">powerhouse of the cell</p>
+      </div>
+      <i class="fas fa-arrow-alt-circle-left arrow-icon"></i>
+      <i class="fas fa-arrow-alt-circle-right arrow-icon"></i>
+    </div>
+  </center>
+    <!-- Try Me Flashcards -->
+    <div id="module-1">
+      <p> Try it out now:</p>
+      <input class="input-general" placeholder="Type in \fc: front, back, front, back\ format" value="\fc:\" id="input-1"></input>
+      <button class="btn-plus" id="btn-1">+</button>
+    </div>
+    <hr>
+    <!-- Headers -->
+    <h2>Headers</h2>
+    <p>Create headers using the pound sign followed by a colon, #:, and wrapping it in backslashes, \\. For example:</p>
+    <p class="example">\#: This is a Header\</p>
+    <p>
+      You can choose from three preset styles by adding an addition number next to it. Otherwise it defaults to style 1. You can also click on them to give an underline effect</p>
+    <h1 class="header header-1">This is a Header 1</h1>
+    <h1 class="header header-2">This is a Header 2</h1>
+    <h1 class="header header-3">This is a Header 3</h1>
+    <p>
+      And finally, you can add a short, collapsible summary by appending it to the end of the header with two commas like so:</p>
+    <p class="example">\#2: Click Me!!,, this is a summary for my header that pops out in a little box when you click it. Click me to get rid of me!</p>
+    <p>And you get this result</p>
+    <!-- Header Example -->
+    <div class="module-header">
+      <h1 id="h-0" class="header header-2">Click Me!!
+      </h1>
+      <div class="summary-box">
+        <i class="fas fa-window-close close-icon"></i>
+        <p>this is a summary for my header that pops out in a little box when you click it. Click the X to get rid of me!</p>
+      </div>
+    </div>
+    <!-- Try Me Header -->
+    <div id="module-2">
+      <p> Try it out now:</p>
+      <input class="input-general" placeholder="Type in \fc: front, back, front, back\ format" value="\#:\" id="input-2"></input>
+      <button class="btn-plus" id="btn-2">+</button>
+    </div>
+    <hr>
+    <!-- Fill Ins -->
+    <h2>Fill Ins</h2>
+    <p>Create Fill ins! You already know the drill by now: wrap it in backslashes with an fi identider, \fi:\, and seperate items you want to be fill ins with double commas like so</p>
+    <p class="example">\fi:This is a ,,fill,, in the blank note\</p>
+    <p>And you end up with the following, which turns red if your response is wrong, and lights green if your response is correct! If you can't figute out the answer, type in three question marks like so "???":</p>
+    <!-- Example Fill in Module -->
+    <div class="module-fill-in">
+      <p>This is a <input class="fill-in" id="fi-0"></input> in the blank note</p>
+    </div>
+    <!-- Try me Fill In -->
+    <div id="module-3">
+      <p> Try it out now:</p>
+      <input class="input-general" placeholder="Type in \fc: front, back, front, back\ format" value="\fi:\" id="input-3"></input>
+      <button class="btn-plus" id="btn-3">+</button>
+    </div>
+    <hr>
+    <!-- MCQ -->
+    <h2>Creating Multiple Choice Questions</h2>
+    <p>To create a multiple choice question, wrap your question and answer choices in backslashes and the identifier mc. You can add as many choices as you wish, just make sure to put your question first and indicate the correct answer choice(s) by
+      prefacing it with a $# like so:</p>
+    <p class="example">\mc:How many inches are in two feet?,, 12,, $#24,, 18,, 36,, 92,, 18\</p>
+    <p>It'll come out looking like this, with a correct selection lighting up green and an incorrect selection lighting up red</p>
+    <div id="mc-0" class="module-mc">
+      <p class="mc-question">How many inches are in two feet?</p>
+      <div class="mc-choices">
+        <p class="mc-choice">A) 12</p>
+        <p class="mc-choice">B) 24</p>
+        <p class="mc-choice">C) 18</p>
+        <p class="mc-choice">D) 36</p>
+        <p class="mc-choice">E) 92</p>
+        <p class="mc-choice">F) 18</p>
+      </div>
+    </div>
+    <div id="module-4">
+      <p> Try it out now:</p>
+      <input class="input-general" placeholder="Type in \fc: front, back, front, back\ format" value="\mc:\" id="input-4"></input>
+      <button class="btn-plus" id="btn-4">+</button>
+    </div>
+    <hr>
+    <!-- MCQ -->
+    <h2>Embedd Google Docs, Slides, and Videos</h2>
+    <p>Get the embed code (File > Publish to Web on Docs or Slides) for each and wrap them in backslashes with the identifier "em" like so:</p>
+    <p class="example">\em:&lt;iframe src="https://docs.google.com/document/d/e/2PACX-1vQ14WUivsF5PgNNa2Vg4NCQcMCDARg70dCyZAM-ixF7f5aXZ7gikHltKZ03TbyhtdksogHw2ImeDdKv/pub?embedded=true"&gt;&lt;/iframe&gt;\</p>
+    <p>And it'll display like this:</p>
+    <iframe src="https://docs.google.com/document/d/e/2PACX-1vQ14WUivsF5PgNNa2Vg4NCQcMCDARg70dCyZAM-ixF7f5aXZ7gikHltKZ03TbyhtdksogHw2ImeDdKv/pub?embedded=true"></iframe>
+    <p>Slides come out like this:</p>
+    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRp7ywAh-nuDZ4n8k6Atvl6JImhRZXnIXu-DBx7S5GL2dMlA-C0uLumT6X0N6IacFVsbNeN7BuD9AUV/embed?start=false&loop=false&delayms=60000" frameborder="0" width="960" height="569"
+      allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+    <p>You can also embed a website using \wb: sitename\</p>
+    <p class="example">\wb:https://phet.colorado.edu/sims/html/atomic-interactions/latest/atomic-interactions_en.html\</p>
+    <div id="module-5">
+      <p> Try it out now:</p>
+      <input class="input-general" placeholder="Type in \wb: front, back, front, back\ format" value="\wb:\" id="input-5"></input>
+      <button class="btn-plus" id="btn-5">+</button>
+    </div>
+    <iframe src="https://phet.colorado.edu/sims/html/atomic-interactions/latest/atomic-interactions_en.html"></iframe>
+    <hr>
+    <h2>Toolbar</h2>
+    <p>You can create editable sticky notes by clicking the sticky note icon. Click on the drag button to move the sticky note (you cannot type while dragging), the x to delete the note, and the minimize button to minimize the sticky note. They come
+      out like this:</p>
+    <div style="margin:auto" class="sticky-note">
+      <i class="fas fa-times x-out"></i>
+      <i class="fas fa-arrows-alt drag-icon"></i>
+      <i class="fas fa-minus minimize-icon"></i>
+      <p contentEditable class="sticky-title">Title</p>
+      <p contentEditable class="sticky-note-text">Edit me!</p>
+    </div>
+    <br><br>
+    <p>Open up a timer and additional, larger notes prompt that displays all sticky notes. You can click on each individual sticky to quickly copy its text. Although not shown here, the create and note pages also have other features like a table of contents and a dark mode. Click "create" to try it out, and "full reference" for full documentatino</p>
+    <!-- Toolbar -->
+    <button class="btn-trigger-toolbar"><i class='fas fa-tools'></i></button>
+    <div class="toolbar">
+      <button id="btn-create-sticky" title="Create new sticky note"><i class="fas fa-sticky-note"></i></button>
+      <button id="btn-open-notes" title="Show all notes"><i class="fa fa-list-alt" aria-hidden="true"></i></button>
+      <button><i class="fas fa-clock"></i></button>
+    </div>
+  </div>
+  <div class="big-note"></div>
+  <div class="sticky-note-pad"></div>
+  <footer style="color: gray"><br><br>
+    <p style="text-align:center">Ronald Cheng 2020</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="JS/tutorial.js" charset="utf-8"></script>
+</body>
+
+</html>

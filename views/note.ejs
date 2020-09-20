@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+      <meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
+    <title>Supernotes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/styles.css">
+  </head>
+  <body>
+    <%- include("navbar") -%>
+    <br><br>
+    <div class="table-of-contents">
+
+    </div>
+
+    <div id="module-1" style="display:none;">
+      <input class="input-general" placeholder="Paste Notes in Here" id="input-1"></input>
+      <button class="btn-plus" id="btn-1">+</button>
+    </div>
+
+    <div id="target-box">
+
+    </div>
+
+    <button class="btn-trigger-toolbar"><i class='fas fa-tools'></i></button>
+    <div class="toolbar">
+      <button title="copy source text" onclick="clickToCopy('#master-list')"><i class="fas fa-file-alt"></i></i></button>
+      <button title="create sticky note" id="btn-create-sticky" title="Create new sticky note"><i class="fas fa-sticky-note"></i></button>
+      <button title="create sticky note" id="btn-show-outline" title="Show Table of Contents"><i class="fas fa-eye"></i></i></button>
+      <button title="open master sticky note" id="btn-open-notes" title="Show all notes"><i class="fa fa-list-alt" aria-hidden="true"></i></button>
+      <button title="open timer"><i class="fas fa-clock"></i></button>
+      <button title="decrease margin size" id="btn-margin-smaller"><i class="fas fa-compress-arrows-alt"></i></button>
+      <button title="increase margin size" id="btn-margin-larger"><i class="fas fa-expand"></i></button>
+      <button title="turn on dark mode" id="btn-dark-mode"><i class="fas fa-moon"></i></i></button>
+    </div>
+  </div>
+
+  <div class="big-note"></div>
+  <div class="outline"></div>
+  <div class="sticky-note-pad"></div>
+
+<p id="master-list" style="display:none"><%=note%></p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../JS/note.js" charset="utf-8"></script>
+  </body>
+</html>
