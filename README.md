@@ -51,4 +51,4 @@ Built With
 Try it out
  sunotes.herokuapp.com
  GitHub Repo
-http://sunotes.herokuapp.com/
+http://sunotes.herokuapp.com/ (link no longer works due to changes to heroku's free plan, files can be downloaded and application can stull be run by calling `node app.js` within the folder after downloading)
